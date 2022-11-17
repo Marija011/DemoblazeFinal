@@ -38,22 +38,22 @@ public class MainPage {
 
     public void LoginClick() {
             LoginBtn().click();
-        }
+            try { Thread.sleep(1500);
+
+        } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }}
 
 
-    public WebElement getInpUsername() {
+        public WebElement getInpUsername() {
         return driver.findElement(By.xpath("//input[@id='loginusername']"));
     }
 
-    /*public void clickUsername() {
-        this.getInpUsername().click();
-    }*/
+
     public WebElement getInpPassword() {
         return driver.findElement(By.xpath("//input[@id='loginpassword']"));
     }
-    /*public void clickPassword() {
-        this.getInpPassword().click();
-    }*/
+
     public void setUsername(String username) {
         this.getInpUsername().sendKeys(username);
 
@@ -65,12 +65,20 @@ public class MainPage {
     }
 
     public WebElement BtnLogin () {
-            return driver.findElement(By.xpath("//button[@class='btn btn-primary']"));
+        return this.driver.findElement(By.xpath("//div[@class='modal-footer']/button[text()='Log in']"));
+
     }
+
 
     public void clickOnLogin() {
         BtnLogin().click();
+        try { Thread.sleep(6000);
+
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
+
 
     /*public void login(String username, String password) {
         this.setUsername(username);

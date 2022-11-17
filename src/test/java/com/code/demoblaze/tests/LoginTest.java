@@ -8,10 +8,11 @@ import org.testng.annotations.Test;
 
 public class LoginTest {
 
-    @Test
+    @Test (invocationCount = 1)
     public void verifyLoginUser() {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Marija\\Downloads\\chromedriver_win32\\chromedriver.exe");
-        MainPage mainPage = new MainPage(new ChromeDriver());
+        ChromeDriver chromeDriver = new ChromeDriver();
+        MainPage mainPage = new MainPage(chromeDriver);
         mainPage.openPage();
         mainPage.LoginClick();
         mainPage.setUsername("MarijaM");
@@ -19,8 +20,8 @@ public class LoginTest {
         mainPage.clickOnLogin();
         mainPage.closePage();
 
-        ProductPage productPage = new ProductPage(new ChromeDriver());
-        Assert.assertEquals(productPage.isDisplayed(), false);
+        ProductPage productPage = new ProductPage(chromeDriver);
+        Assert.assertEquals(productPage.isDisplayed(), true);
 
     }
 }

@@ -18,16 +18,40 @@ public class ProductPage {
         this.driver.manage().window().maximize();
     }
     public WebElement WelcomeMarijaM () {
-        return driver.findElement(By.xpath("//a[@id='nameofuser']"));
+
+        return driver.findElement(By.xpath("//div[@class='navbar-collapse']/ul[@class='navbar-nav ml-auto']/a[text()='Welcome MarijaM']"));
     }
 
-    public boolean isDisplayed() {
-        boolean toRetun = false;
-        if (this.WelcomeMarijaM().equals("Welcome MarijaM")) {
-            toRetun = true;
-        }
-        return toRetun;
 
+    public boolean isDisplayed() {
+        boolean toReturn = false;
+        if (this.WelcomeMarijaM().isDisplayed()) {
+            toReturn = true;
+        }
+        return toReturn;
+    }
+
+    public WebElement NokiaLumia1520 () {
+        return driver.findElement(By.xpath("//h4[@class='card-title']/a[text()='Nokia lumia 1520']"));
+    }
+    public void clickOnNokia () {
+        NokiaLumia1520().click();
+        try { Thread.sleep(1500);
+
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public WebElement AddToCartBtn () {
+        return driver.findElement(By.xpath("//div[@class='col-sm-12 col-md-6 col-lg-6']/a[text()='Add to cart']"));
+    }
+    public void clickOnAddToCart () {
+        AddToCartBtn().click();
+        try { Thread.sleep(1500);
+
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void closeProductPage() {
