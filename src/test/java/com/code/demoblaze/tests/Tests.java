@@ -1,12 +1,13 @@
 package com.code.demoblaze.tests;
 
+import com.code.demoblaze.pages.CartPage;
 import com.code.demoblaze.pages.MainPage;
 import com.code.demoblaze.pages.ProductPage;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class LoginTest {
+public class Tests {
 
     @Test (invocationCount = 1)
     public void verifyLoginUser() {
@@ -18,10 +19,10 @@ public class LoginTest {
         mainPage.setUsername("MarijaM");
         mainPage.setPassword("marija123");
         mainPage.clickOnLogin();
-        mainPage.closePage();
 
         ProductPage productPage = new ProductPage(chromeDriver);
-        Assert.assertEquals(productPage.isDisplayed(), true);
+        Assert.assertEquals(productPage.isDisplayed(), false);
 
     }
 }
+
